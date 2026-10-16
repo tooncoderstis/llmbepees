@@ -1,0 +1,55 @@
+# Dependencies / build artifacts
+node_modules/
+vendor/
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environment & secrets (JANGAN commit)
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Sumber acuan buku (hak cipta) — rujukan lokal saja, JANGAN didistribusikan
+LLM.pdf
+per bab/
+*.pdf
+
+# ML artifacts (checkpoint besar & data)
+models/*.pt
+models/*.pth
+models/*.safetensors
+*.npy
+*.npz
+data/*
+!data/corpus.txt
+experiments/**/out/
+
+# Logs & runtime
+*.log
+storage/logs/
+tmp/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local DB
+*.sqlite
+database/*.sqlite

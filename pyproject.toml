@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmbepees"
+version = "0.1.0"
+description = "Belajar & membangun LLM dari nol: catatan matematika + implementasi NumPy lalu PyTorch."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Aasa" }]
+keywords = ["llm", "transformer", "education", "numpy", "pytorch"]
+classifiers = [
+  "Programming Language :: Python :: 3.11",
+  "Intended Audience :: Education",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+torch = ["torch>=2.2"]
+serve = ["fastapi>=0.110", "uvicorn[standard]>=0.29"]
+tokenizers = ["tiktoken>=0.6", "sentencepiece>=0.2"]
+dev = ["pytest>=8", "ruff>=0.5", "pypdf>=4"]
+
+[project.scripts]
+# CLI akan ditambahkan di fase berikutnya.
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]

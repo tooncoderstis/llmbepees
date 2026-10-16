@@ -1,0 +1,9 @@
+{
+  "name": "llmbepees",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Belajar & membangun LLM dari nol. Skrip utilitas (hub report dll).",
+  "scripts": {
+    "hub:report": "node scripts/hub-report.mjs"
+  }
+}

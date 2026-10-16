@@ -1,0 +1,21 @@
+Model bahasa besar bekerja dengan satu tugas yang sederhana: menebak token
+berikutnya. Dari tugas itu muncul kemampuan yang jauh lebih rumit. Setiap kata
+dalam sebuah kalimat saling bergantung. Attention memindahkan informasi antar
+posisi, sedangkan feed-forward network mengolah informasi di dalam satu posisi.
+
+Embedding mengubah token menjadi vektor. Posisi memberi tahu model urutan kata.
+Attention membandingkan query dengan key, lalu mengambil rata-rata berbobot dari
+value. Softmax mengubah logit menjadi probabilitas, dan cross-entropy mengukur
+seberapa buruk tebakan model.
+
+Backpropagation menghitung gradien untuk seluruh parameter. Optimizer Adam
+menentukan seberapa jauh setiap parameter melangkah. Residual connection menjaga
+gradien tetap mengalir, dan normalisasi menjaga skala angka tetap wajar.
+
+Mini-LLM dengan seratus delapan puluh delapan parameter dilatih dari nol. Model
+kecil ini belajar meniru proporsi data, bukan menghafal satu jawaban. Tanpa satu
+instruksi pun, embedding kata yang berperan sama menjadi hampir sejajar.
+
+Menebak token berikutnya, triliunan kali, pada teks dari seluruh internet. Itulah
+cara sebuah model bahasa modern belajar. Gradien memberi arah, optimizer memberi
+ukuran langkah, dan data memberi pengalaman.
