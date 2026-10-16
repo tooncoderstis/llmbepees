@@ -10,6 +10,7 @@ Status terkini: [`STATUS.md`](STATUS.md).
 ### Added
 - Starter proyek disalin penuh dari `aasallm` (mirror) lalu di-rename: paket `src/llmbepees`, uji, CI, deploy, hub, dan catatan belajar 22 bab (`docs/belajar/`).
 - ADR-0008: keputusan starter dari `aasallm` & arah asisten domain.
+- Fase 0 selesai: repo publik & CI hijau; layanan tayang di `llmbepees.hgteop.easypanel.host` (image Docker Hub `aasatech/llmbepees-web:latest`).
 
 ### Changed
 - Nama/slug proyek → `llmbepees`; paket Python → `llmbepees`.

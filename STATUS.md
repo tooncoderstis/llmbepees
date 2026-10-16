@@ -5,16 +5,16 @@
 > **Jangan simpan kredensial di file ini.**
 
 - **Terakhir diperbarui**: 2026-10-17
-- **Versi produksi aktif**: — (belum dideploy)
+- **Versi produksi aktif**: `aasatech/llmbepees-web:latest` → https://llmbepees.hgteop.easypanel.host
 - **Platform**: Python 3.11 (NumPy → PyTorch + FastAPI); deploy EasyPanel (Docker image)
 
 ## TL;DR (konteks 30 detik)
-`llmbepees` adalah proyek **asisten domain yang faktual & anti-halusinasi**, dibangun dari nol. Starter (struktur, kode, uji, CI, deploy, hub) **disalin dari `aasallm`** lalu diganti nama (lihat [ADR-0008](docs/adr/0008-starter-dari-aasallm.md)); catatan belajar 22 bab ikut sebagai rujukan. Arah: tokenizer **BPE**, model GPT sendiri (sedang, CPU), **SFT**, dan **grounding (RAG)** atas dokumen sendiri sehingga jawaban mengutip konteks (abstain bila tak ada). **Fase 0 (Setup & Fondasi) dikerjakan** 🔄.
+`llmbepees` adalah proyek **asisten domain yang faktual & anti-halusinasi**, dibangun dari nol. Starter (struktur, kode, uji, CI, deploy, hub) **disalin dari `aasallm`** lalu diganti nama (lihat [ADR-0008](docs/adr/0008-starter-dari-aasallm.md)); catatan belajar 22 bab ikut sebagai rujukan. Arah: tokenizer **BPE**, model GPT sendiri (sedang, CPU), **SFT**, dan **grounding (RAG)** atas dokumen sendiri sehingga jawaban mengutip konteks (abstain bila tak ada). **Fase 0 (Setup & Fondasi) selesai** ✅ — starter tersalin, repo & CI hijau, layanan tayang. Berikutnya **Fase 1 (Tokenizer BPE & dataset domain)**.
 
 ## Checklist Tahap
 | Fase | Judul | Status |
 |---|---|---|
-| 0 | Setup & Fondasi (starter dari aasallm) | 🔄 |
+| 0 | Setup & Fondasi (starter dari aasallm) | ✅ |
 | 1 | Tokenizer BPE & dataset domain | ⬜ |
 | 2 | Model sedang + pretraining domain | ⬜ |
 | 3 | SFT (instruksi/tanya-jawab) | ⬜ |
@@ -32,21 +32,23 @@
 4. **Mulai Fase 1**: tandai baris Fase 1 menjadi 🔄 di tabel di atas → `npm run hub:report`; lalu ikuti **DoD** di `AGENTS.md` (kode → test → formatter → CHANGELOG → STATUS → ADR bila perlu → hub:report).
 5. **Panduan membaca** proyek & catatan: `docs/belajar/PANDUAN.md`.
 
-Kondisi ringkas: **starter selesai disalin & di-rename**; siap mulai Fase 1 (BPE & dataset).
+Kondisi ringkas: **starter selesai disalin & di-rename**, repo & CI hijau, layanan tayang; siap mulai Fase 1 (BPE & dataset).
 
 ## Kondisi saat ini
-- **Fase 0 (Setup & Fondasi)** 🔄: starter `aasallm` disalin penuh & di-rename → `llmbepees` (paket `src/llmbepees`, uji, CI, deploy, hub).
-- Kode starter: `src/llmbepees/{np,torch,serve}` + `tests/` + `scripts/` + `deploy/` + catatan `docs/belajar/`.
-- CI GitHub Actions (ruff + pytest + gitleaks) sudah ada; repo GitHub menyusul saat push.
+- **Fase 0 (Setup & Fondasi)** ✅: starter `aasallm` disalin penuh & di-rename → `llmbepees` (paket `src/llmbepees`, uji 314 lolos, CI, deploy, hub).
+- Repo GitHub publik: https://github.com/tooncoderstis/llmbepees (CI hijau).
+- Layanan tayang: https://llmbepees.hgteop.easypanel.host (`/health = 200`; project `m`, service `llmbepeesweb`).
+- Hub portofolio tersinkron (`llmbepees`, 7 fase terbaca).
 
 ## Yang belum selesai / menunggu
 | Item | Catatan |
 |---|---|
-| Repo GitHub | Belum dibuat/push (rencana publik `llmbepees`) |
-| Secret hub | `HUB_INGEST_SECRET` di `.env` (dari repo portofolio); tidak di-commit |
-| Secret EasyPanel | MCP `easypanel` aktif; project baru ditolak (batas paket) → deploy di project `m`, service `llmbepeesweb` |
-| Deploy | Belum (rencana Fase 6) — domain `llmbepees.hgteop.easypanel.host` |
-| Domain asisten | Grounding & data dokumen domain belum disiapkan (menunggu dokumen dari pemilik) |
+| Repo GitHub | ✅ publik: https://github.com/tooncoderstis/llmbepees (CI hijau) |
+| Secret hub | ✅ terisi di `.env` (dari repo portofolio); tidak di-commit |
+| Secret EasyPanel | ✅ MCP `easypanel` aktif; project baru ditolak (batas paket) → deploy di project `m` |
+| Deploy | ✅ tayang di `llmbepees.hgteop.easypanel.host` (published host 8001) |
+| Domain asisten | ⬜ Grounding & data dokumen domain belum disiapkan (menunggu dokumen dari pemilik) |
+| CI | ✅ ruff + pytest + gitleaks hijau |
 
 ## Keputusan & kesimpulan penting
 - **Starter dari `aasallm`** (mirror penuh) lalu rename; paket Python `llmbepees`. Lihat [ADR-0008](docs/adr/0008-starter-dari-aasallm.md).

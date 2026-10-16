@@ -4,7 +4,7 @@ Prosedur operasional. Satu berkas per prosedur.
 
 | Runbook | Status |
 |---|---|
-| [`deploy.md`](deploy.md) — build image & deploy ke EasyPanel | ⬜ belum dideploy (target https://llmbepees.hgteop.easypanel.host) |
+| [`deploy.md`](deploy.md) — build image & deploy ke EasyPanel | ✅ tayang di https://llmbepees.hgteop.easypanel.host |
 | [`kegunaan-llm.md`](kegunaan-llm.md) — apa gunanya LLM & bagaimana cara kerjanya (edukatif) | ✅ |
 
 ## Ringkas: operasional lokal

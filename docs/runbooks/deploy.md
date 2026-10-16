@@ -2,7 +2,7 @@
 
 > Prosedur deploy demo `llmbepees` (FastAPI, model char-level). Mekanisme mengikuti [ADR-0004](../adr/0004-deploy-easypanel.md) (programatik via MCP); **target aktual** ada di [ADR-0007](../adr/0007-target-deploy-aktual.md).
 >
-> **Status: belum dideploy** (rencana Fase 6) → target https://llmbepees.hgteop.easypanel.host/.
+> **Status: tayang** → https://llmbepees.hgteop.easypanel.host/ (`/health = 200`).
 
 ## Target aktual (2026-10-17)
 | Aspek | Nilai |
@@ -11,8 +11,10 @@
 | Project | **`m`** (project baru `llmbepees` ditolak: batas paket) |
 | Service | **`llmbepeesweb`** (type app, source: Docker image) |
 | Domain | **`llmbepees.hgteop.easypanel.host`** (HTTPS) |
-| Port kontainer | `8000` |
+| Port kontainer | `8000` (published host `8001` — hindari bentrok dengan `aasallmweb` yang memakai host `8000`) |
 | Verifikasi | `GET /health = 200`, `/generate`, `/explain`, `GET /` OK |
+
+> **Pelajaran**: dua service EasyPanel tidak boleh memakai **published host port** yang sama. Domain (Traefik) mengarah ke **port kontainer**, jadi published host cukup unik per service.
 
 ## Prasyarat
 - Docker lokal (Docker Desktop).

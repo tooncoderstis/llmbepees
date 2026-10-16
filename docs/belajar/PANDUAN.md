@@ -210,7 +210,7 @@ python -m venv .venv
 # buka http://127.0.0.1:8000/  (halaman chat); API: /health, /generate, /explain
 ```
 
-Jalankan demo secara lokal seperti di atas. (Versi tayang menyusul pada fase deploy; lihat `docs/runbooks/deploy.md`.)
+Demo juga **tayang**: https://llmbepees.hgteop.easypanel.host/ (lihat `docs/runbooks/deploy.md`).
 
 `pytest` hijau berarti semua angka buku cocok (toleransi desimal ke-3, lihat [ADR-0002](../adr/0002-strategi-verifikasi.md)).
 
